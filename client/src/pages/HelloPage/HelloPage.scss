@@ -1,0 +1,42 @@
+.hellopage-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.hellopage-hellotext {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  span {
+    align-self: center;
+    width: 60%;
+    line-height: 1.6rem;
+  }
+}
+.hellopage-button {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  button {
+    color: #fff;
+    width: 200px;
+    padding: 15px 20px;
+    margin: 0;
+    border: 0;
+    align-self: center;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 3px;
+    background: rgb(64, 199, 129);
+    box-shadow: 0 -3px rgb(53, 167, 110) inset;
+    transition: 0.2s;
+    &:hover {
+      background: rgb(53, 167, 110);
+    }
+    &:active {
+      background: rgb(33, 147, 90);
+      box-shadow: 0 3px rgb(33, 147, 90) inset;
+    }
+  }
+}

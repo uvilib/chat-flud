@@ -1,0 +1,4 @@
+{
+    "PORT": 80,
+    "clientHost": "https://chat-flud.herokuapp.com:3000"
+}
