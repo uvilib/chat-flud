@@ -12,7 +12,6 @@ export default function messageReducer(state = initialState, action) {
   switch (action.type) {
     case MESSAGE_TO_STORE:
       return {
-        ...state,
         messages: [...state.messages, action.message],
       };
     case DELETE_ALL_MESSAGES_TO_STORE:
@@ -21,7 +20,7 @@ export default function messageReducer(state = initialState, action) {
       };
     case MESSAGE_TO_STORE_AFTER_DELETE:
       return {
-        messages: action.messages,
+        messages: JSON.parse(localStorage.getItem("message")),
       };
     default:
       return state;

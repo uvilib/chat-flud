@@ -40,7 +40,7 @@ export function deleteSelectedMessages(array) {
     localStorage.removeItem("message");
     localStorage.setItem("message", JSON.stringify(messageStore));
 
-    dispatch(messageToStoreAfterDelete(messageStore));
+    dispatch(messageToStoreAfterDelete());
   };
 }
 
@@ -57,9 +57,8 @@ export function deleteAllMessagesToStore() {
   };
 }
 
-export function messageToStoreAfterDelete(messages) {
+export function messageToStoreAfterDelete() {
   return {
     type: MESSAGE_TO_STORE_AFTER_DELETE,
-    messages,
   };
 }

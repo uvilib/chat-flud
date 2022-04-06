@@ -120,6 +120,7 @@ const Chat = (props) => {
 
   function deleteMessages() {
     props.deleteSelectedMessages(arr);
+    setMessages(props.messages);
 
     const item = document.getElementsByClassName("chat-main-content-item");
     const deletebtn = document.querySelector(".chat-footer-delete");
