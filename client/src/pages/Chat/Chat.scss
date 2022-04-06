@@ -9,14 +9,11 @@
   flex-direction: column;
 }
 .chat-header {
-  // height: 9%;
   width: 100%;
   padding: 15px 0;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  // border-radius: 10px;
-  // background-color: #f5f9fc;
   position: relative;
   &-icon {
     width: 3em;
@@ -80,12 +77,9 @@
 }
 .chat-main {
   width: 100%;
-  // height: 84%;
   display: flex;
   overflow: auto;
   flex: 1 1 auto;
-  // border-radius: 10px;
-  // background-color: #f2f6fc;
 }
 .chat-main-sidebar {
   overflow: auto;

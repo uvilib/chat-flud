@@ -24,13 +24,6 @@ app.use(
 );
 app.use(express.json({ limit: "50mb", type: "application/json" }));
 
-// const io = require("socket.io")(server, {
-//   maxHttpBufferSize: 1e8,
-//   cors: {
-//     methods: ["GET", "POST"],
-//   },
-// });
-
 const PORT = process.env.PORT || config.get("PORT");
 __dirname = path.resolve();
 
@@ -50,6 +43,10 @@ io.on("connection", (socket) => {
     const message = JSON.parse(data);
     message.nickname = nickname;
     message.id = id;
+
+    // Использовал декодирование base64 в изображение,
+    // которое записывается в папку на клиенте,
+    // но такой метод не работает после залива на heroku
 
     // if (message.image) {
     //   const base64str = message.image;
