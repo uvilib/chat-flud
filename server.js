@@ -1,12 +1,19 @@
 const express = require("express");
 const http = require("http");
+const app = express();
+const server = http.createServer(app);
 const path = require("path");
 const config = require("config");
 const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
 
-const app = express();
-const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server, {
+  maxHttpBufferSize: 1e8,
+  cors: {
+    methods: ["GET", "POST"],
+  },
+});
 
 app.use(
   express.urlencoded({
@@ -17,13 +24,12 @@ app.use(
 );
 app.use(express.json({ limit: "50mb", type: "application/json" }));
 
-const io = require("socket.io")(server, {
-  maxHttpBufferSize: 1e8,
-  cors: {
-    origin: config.get("clientHost"),
-    methods: ["GET", "POST"],
-  },
-});
+// const io = require("socket.io")(server, {
+//   maxHttpBufferSize: 1e8,
+//   cors: {
+//     methods: ["GET", "POST"],
+//   },
+// });
 
 const PORT = process.env.PORT || config.get("PORT");
 __dirname = path.resolve();
