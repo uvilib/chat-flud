@@ -45,20 +45,20 @@ io.on("connection", (socket) => {
     message.nickname = nickname;
     message.id = id;
 
-    if (message.image) {
-      const base64str = message.image;
-      const base64Image = base64str.split(";base64,").pop();
-      const uuid = uuidv4();
+    // if (message.image) {
+    //   const base64str = message.image;
+    //   const base64Image = base64str.split(";base64,").pop();
+    //   const uuid = uuidv4();
 
-      fs.writeFile(
-        `${__dirname}/client/build/images/${uuid}.png`,
-        base64Image,
-        { encoding: "base64" },
-        function (err) {}
-      );
+    //   fs.writeFile(
+    //     `${__dirname}/client/build/images/${uuid}.png`,
+    //     base64Image,
+    //     { encoding: "base64" },
+    //     function (err) {}
+    //   );
 
-      message.image = `/images/${uuid}.png`;
-    }
+    //   message.image = `/images/${uuid}.png`;
+    // }
 
     io.sockets.emit("redux-message", message);
   });
